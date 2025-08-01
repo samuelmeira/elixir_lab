@@ -12,12 +12,16 @@ defmodule ElixirLabWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    get "/pokemons", ElixirLabWeb.PokemonController, :index
+    resources "/treinners", ElixirLabWeb.TreinnerController, except: [:new, :edit]
   end
 
   scope "/", ElixirLabWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+    resources "/todos", TodoController
   end
 
   # Other scopes may use custom stacks.

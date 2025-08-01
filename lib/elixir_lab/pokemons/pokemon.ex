@@ -17,4 +17,9 @@ defmodule ElixirLab.Pokemons.Pokemon do
     |> cast(params, @required)
     |> validate_required(@required)
   end
+
+  def update_changeset(pokemon, params) do
+    pokemon
+    |> cast(params, @required)
+  end
 end
